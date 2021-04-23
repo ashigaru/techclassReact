@@ -1,37 +1,21 @@
-import React from 'react';
-import './index.css';
-import CardComponent from './CardComponent';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
+import React from "react";
+import CardComponent from "./CardComponent";
+import InputForm from "./InputForm";
 
-import InputForm from './InputForm';
+class App extends React.Component {
+  state = { signedIn: true };
 
+  signIn() {
+    this.setState({ signedIn: true });
+  }
 
-require('dotenv').config();
-
-
-
-function App() {
-  return (
-    <div className="App">
-      <Router>
-
-
-        <Switch>
-          <Route path='/cards'>
-            <CardComponent />
-          </Route>
-          <Route path='/'>
-            <InputForm />
-          </Route>
-        </Switch>
-
-      </Router>
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        {this.state.signedIn ? <CardComponent /> : <InputForm onSignIn={() => this.signIn()} />}
+      </div>
+    );
+  }
 }
 
 export default App;
