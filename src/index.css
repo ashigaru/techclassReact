@@ -43,14 +43,6 @@ code {
 
 .ant-form-item {
   background-color: white;
+  display: flexbox;
 }
 
-.deleteCardButton {
-  background-color: red;
-        width: 100%;
-        
-    }
-
-.cardComponentCol {
-  margin: 1rem;
-}
